@@ -1,0 +1,65 @@
+Qt5.14.2鏈接MySQL：
+	0	下載MySQL
+		$ sudo apt-get install mysql-server
+		$ sudo apt-get install mysql-client
+		$ sudo apt-get install libmysqlclient-dev
+		
+	1	修改文件
+		1.1	修改mysql.pro
+			（Qt自帶的MySQL庫文件源代碼路徑：/opt/Qt5.14.2/5.14.2/gcc_64/plugins/sqldrivers/mysql）
+			Open in Terminal（在MySQL源代碼処）
+			$ sudo vim mysql.pro
+			
+							TARGET = qsqlmysql
+							  
+							HEADERS += $$PWD/qsql_mysql_p.h
+							SOURCES += $$PWD/qsql_mysql.cpp $$PWD/main.cpp
+
+							# 将本行使用 # 号注释掉 <-----------------------------
+							#QMAKE_USE += mysql
+							<---------------------------------------------------
+
+							OTHER_FILES += mysql.json
+
+							# 添加如下两行内容 <-----------------------------------
+							INCLUDEPATH += /usr/include/mysql
+							LIBS += -L/usr/lib/x86_64-linux-gnu -lmysqlclient
+							# <--------------------------------------------------
+
+							PLUGIN_CLASS_NAME = QMYSQLDriverPlugin
+							include(../qsqldriverbase.pri)
+			（保存並退出vim：，然後鍵入:wq）
+		1.2 修改qsqldriverbase.pri
+			$ sudo vim ../qsqldriverbase.pri（此時Terminal仍位於1.1中位置）
+			
+							QT  = core core-private sql-private
+							  
+							# For QMAKE_USE in the parent projects.
+							# 使用 # 号将本行注释掉 <----------------------------
+							#include($$shadowed($$PWD)/qtsqldrivers-config.pri)
+							# <------------------------------------------------
+
+							PLUGIN_TYPE = sqldrivers
+							load(qt_plugin)
+
+							DEFINES += QT_NO_CAST_TO_ASCII QT_NO_CAST_FROM_ASCII
+
+	2 編譯文件
+		$ sudo /opt/Qt5.14.2/5.14.2/gcc_64/bin/qmake（會得到一個makefile文件）
+		$ sudo make
+		[$ sudo find / -name "libqsqlmysql.*"]（查找生成的兩個文件：libqsqlmysql.so、libqsqlmysql.so.debug）（在make結束後也會有顯示）
+		[$ ldd libqsqlmysql.so]（可使用它進行檢查）
+		$ sudo mv libqsqlmysql.so /opt/Qt5.14.2/5.14.2/gcc_64/plugins/sqldrivers
+		$ sudo mv libqsqlmysql.so.debug /opt/Qt5.14.2/5.14.2/gcc_64/plugins/sqldrivers（把生成的兩個文件移動到Qt的插件列表）
+		
+QT連接SQL：
+	報錯1：QSqlError("1698", "QMYSQL: Unable to connect", "Access denied for user 'root'@'localhost'")								
+		解決辦法：
+			$ sudo mysql
+				> USE mysql
+				> SELECT User, Host, plugin FROM mysql.user;
+				（然後發現root的plugin和其他不同，它是auth_socket）
+				> UPDATE user SET plugin='caching_sha2_password' WHERE User='root';（改成其他的plugin）
+				> FLUSH PRIVILEDGES;
+				> exit;
+			$ service mysql restart
