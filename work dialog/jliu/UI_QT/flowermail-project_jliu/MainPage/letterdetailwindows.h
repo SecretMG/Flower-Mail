@@ -1,6 +1,9 @@
 #ifndef LETTERDETAILWINDOWS_H
 #define LETTERDETAILWINDOWS_H
 
+#include "writeletterwindow.h"
+#include "saveattach.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -17,6 +20,14 @@ public:
 
 private:
     Ui::LetterDetailWindows *ui;
+    WriteLetterWindow *replyWindow;
+    WriteLetterWindow *forwardWindow;
+    SaveAttach *saveAttach;
+
+private slots:
+    void openReplyWindow();
+    void openForwardWindow();
+    void openSaveAttach();
 };
 
 #endif // LETTERDETAILWINDOWS_H

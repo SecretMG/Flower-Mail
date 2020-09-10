@@ -15,6 +15,7 @@ SOURCES += \
     letterdetailwindows.cpp \
     main.cpp \
     mainwindow.cpp \
+    saveattach.cpp \
     searchresultwindow.cpp \
     settimewindow.cpp \
     wordcolor.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     contecterlistwindow.h \
     letterdetailwindows.h \
     mainwindow.h \
+    saveattach.h \
     searchresultwindow.h \
     settimewindow.h \
     wordcolor.h \
@@ -47,6 +49,7 @@ FORMS += \
     contecterlistwindow.ui \
     letterdetailwindows.ui \
     mainwindow.ui \
+    saveattach.ui \
     searchresultwindow.ui \
     settimewindow.ui \
     wordcolor.ui \

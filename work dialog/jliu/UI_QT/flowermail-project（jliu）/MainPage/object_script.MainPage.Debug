@@ -5,6 +5,7 @@ INPUT(
 ./debug\letterdetailwindows.o
 ./debug\main.o
 ./debug\mainwindow.o
+./debug\saveattach.o
 ./debug\searchresultwindow.o
 ./debug\settimewindow.o
 ./debug\wordcolor.o
@@ -19,6 +20,7 @@ INPUT(
 ./debug\moc_contecterlistwindow.o
 ./debug\moc_letterdetailwindows.o
 ./debug\moc_mainwindow.o
+./debug\moc_saveattach.o
 ./debug\moc_searchresultwindow.o
 ./debug\moc_settimewindow.o
 ./debug\moc_wordcolor.o

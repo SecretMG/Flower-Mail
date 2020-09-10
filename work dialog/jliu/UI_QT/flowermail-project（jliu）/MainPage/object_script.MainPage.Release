@@ -5,6 +5,7 @@ INPUT(
 ./release\letterdetailwindows.o
 ./release\main.o
 ./release\mainwindow.o
+./release\saveattach.o
 ./release\searchresultwindow.o
 ./release\settimewindow.o
 ./release\wordcolor.o
@@ -19,6 +20,7 @@ INPUT(
 ./release\moc_contecterlistwindow.o
 ./release\moc_letterdetailwindows.o
 ./release\moc_mainwindow.o
+./release\moc_saveattach.o
 ./release\moc_searchresultwindow.o
 ./release\moc_settimewindow.o
 ./release\moc_wordcolor.o

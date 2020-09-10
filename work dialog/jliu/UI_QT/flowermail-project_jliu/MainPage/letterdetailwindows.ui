@@ -70,7 +70,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="ReplyB">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -83,7 +83,7 @@
      <string>回复</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="ForwardB">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -96,7 +96,7 @@
      <string>转发</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="SaveAttachB">
     <property name="geometry">
      <rect>
       <x>230</x>
