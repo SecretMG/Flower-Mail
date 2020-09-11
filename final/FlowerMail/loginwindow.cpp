@@ -1,9 +1,10 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 #include "getbackpwd.h"
-#include <QMessageBox>
 #include "mainwindow.h"
+#include "mysql.h"
 
+#include <QMessageBox>
 #include <QDebug>
 
 //需要记录用户and密码，自动登录and记住密码
@@ -11,7 +12,6 @@ QString passWord;
 QString userName;
 bool isAutoLogin;//启动的时候连接数据库
 bool isRememPwd;
-bool contentRight = true;//密码和用户名是否匹配 -liugei
 
 LogInWindow::LogInWindow(QWidget *parent)
     : QWidget(parent)
@@ -64,19 +64,22 @@ void LogInWindow::submitInfo( ) {//获取输入内容
 
      inputEmpty = isEmpty();//判断输入是否为空
      qDebug() << "after judge: inputEmpty = " << inputEmpty;
-     if( inputEmpty ){
+     if(inputEmpty){
          qDebug() << "In judge_main: inputEmpty = " << inputEmpty;
          QMessageBox::warning(this, tr("警告"),tr("输入为空！"),QMessageBox::Yes);
      }
      else{
-         //连接数据库判断是否正确
-         if( contentRight == true ){
+         // TODO:是否连接到server
+         MySql mySql = MySql();
+         mySql.useUsersTable(); // 没有数据表则创建数据表
+         bool userExit = mySql.checkUserExit(userName, passWord);
+         if( userExit == true ){
              toMainPage();
              close();
          }
          else{
              //弹出警告窗口
-            QMessageBox::warning(this, tr("警告"),tr("用户名或密码输入错误！"),QMessageBox::Yes);
+             QMessageBox::warning(this, tr("警告"),tr("用户名或密码输入错误！"),QMessageBox::Yes);
              ui -> name_le->clear();
              ui -> pwd_le->clear();
          }

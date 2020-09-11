@@ -1,8 +1,10 @@
 #include "register.h"
 #include "ui_register.h"
+#include "mainwindow.h"
+#include "mysql.h"
 #include <QDebug>
 #include <QMessageBox>
-#include "mainwindow.h"
+
 QString newPwd;
 QString checkPwd;
 QString userNameNew;
@@ -45,7 +47,9 @@ void Register::judgeEmpty(){
     qDebug()<< "Empty?" << isInputEmpty_reg << "Same?" << isInputSame_reg << endl;
 
     if( isInputEmpty_reg == false && isInputSame_reg == true ){
-        //到主页
+        MySql mySql = MySql();
+        mySql.useUsersTable();
+        mySql.insertUser(userNameNew, newPwd);
         mainWindow = new MainWindow;
         mainWindow -> show();
         printf("toMain\n");
