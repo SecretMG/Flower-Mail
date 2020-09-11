@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Personinfo</class>
+ <widget class="QWidget" name="Personinfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1149</width>
+    <height>637</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>160</y>
+     <width>291</width>
+     <height>191</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>170</y>
+     <width>431</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,7">
+    <item>
+     <widget class="QLabel" name="username_lb">
+      <property name="text">
+       <string>用户名</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="usernamec_lb">
+      <property name="text">
+       <string>这里是从数据库里拿出来的数据</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>230</y>
+     <width>431</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="mail_layout" stretch="3,7">
+    <item>
+     <widget class="QLabel" name="mail_lb">
+      <property name="text">
+       <string>邮箱地址</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="mailaddress_lb">
+      <property name="text">
+       <string>这里是用户自己搞得邮箱地址,不可修改</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>290</y>
+     <width>431</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="buttons_layout">
+    <property name="spacing">
+     <number>90</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="settings_info">
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="logout_btn">
+      <property name="text">
+       <string>退出登录</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="changeinfo_btn">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>180</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>修改用户名</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="changephoto_btn">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>360</y>
+     <width>291</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>修改头像</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
