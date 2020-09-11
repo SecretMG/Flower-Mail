@@ -180,102 +180,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>220</y>
-      <width>731</width>
-      <height>411</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;a&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <row>
-     <property name="text">
-      <string>新建行</string>
-     </property>
-    </row>
-    <column>
-     <property name="text">
-      <string>新建列</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>新建列</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>新建列</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>新建列</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>新建列</string>
-     </property>
-    </column>
-   </widget>
    <widget class="QPushButton" name="SettingB">
     <property name="geometry">
      <rect>
@@ -287,6 +191,16 @@
     </property>
     <property name="text">
      <string>主题设置</string>
+    </property>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>265</x>
+      <y>231</y>
+      <width>671</width>
+      <height>411</height>
+     </rect>
     </property>
    </widget>
   </widget>

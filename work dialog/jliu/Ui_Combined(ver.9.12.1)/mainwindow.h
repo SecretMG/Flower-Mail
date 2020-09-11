@@ -7,8 +7,17 @@
 #include "settings.h"
 #include "personinfo.h"
 #include "checklogout.h"
+#include "letterdetailwindows.h"
 
 #include <QMainWindow>
+
+#include <QWidget>
+#include <QStandardItem>
+#include <QStandardItemModel>
+#include <QTableView>
+#include <QHeaderView>
+#include <QMenu>
+#include <QAction>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,6 +38,10 @@ private:
     Settings *settings;
     Personinfo *personInfo;
     Checklogout *checkLogout;
+    QStandardItemModel *standItemModel;
+    QMenu *rightClickMenu; //右键点出菜单
+    QAction *deleteAction; //删除操作
+    LetterDetailWindows *letterDetailWindows;
 
 private slots:
     void openWriteLetter();
@@ -36,6 +49,9 @@ private slots:
     void openSettings();
     void openPersoninfo();
     void openChecklogout();
+    void rithtClickMenu(QPoint pos); //菜单 点击   获取当前位置
+    void menuChooseAction(QAction *act);
+    void openDetail(QModelIndex index2); //此处之后需要改为传递一个时间戳的函数
 
 };
 #endif // MAINWINDOW_H
