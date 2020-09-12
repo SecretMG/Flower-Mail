@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     standItemModel = new QStandardItemModel();//添加QTableView代码
     //添加表头
     standItemModel->setColumnCount(4);
-    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral("序号"));   //设置表头内容
+    standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral(" "));   //设置表头内容
     if ((boxState == 1)||(boxState>3)){
         standItemModel->setHeaderData(1,Qt::Horizontal,QStringLiteral("发件人"));
     }
@@ -38,12 +38,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     //向表格添加10行内容，用以展示，可以将此内容看作test效果
     for(int i=0;i<10;i++){
-        QStandardItem *standItem1 = new QStandardItem(tr("%1").arg(i+1));
         QStandardItem *standItem2 = new QStandardItem(tr("第%1行").arg(i+1));
         QStandardItem *standItem4 = new QStandardItem(tr("第%1行").arg(i+1));
-        standItemModel->setItem(i,0,standItem1);                                //表格第i行，第0列添加一项内容
-        standItemModel->item(i,0)->setTextAlignment(Qt::AlignCenter);           //设置表格内容居中
-        standItemModel->setItem(i,1,standItem2);   //表格第i行，第1列添加一项内容
+        //以下为头checkbox功能
+        QStandardItem *Item_IOCheckBox[i]; //表格共设置32行，需要32个Item_IOCheckBox复选框类对象
+        Item_IOCheckBox[i] = new QStandardItem();
+        Item_IOCheckBox[i]->setCheckable(true);
+        Item_IOCheckBox[i]->setCheckState( Qt::Unchecked );
+        standItemModel->setItem(i, 0 ,Item_IOCheckBox[i] ); //自定义表格头，checkbox
+        standItemModel->setItem(i,1,standItem2);   //表格第i行，第2列添加一项内容
         standItemModel->item(i,1)->setTextAlignment(Qt::AlignCenter);           //设置表格内容居中
         standItemModel->setItem(i,3,standItem4);
     }//*/此处可以视作留给数据的输入口
@@ -55,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui -> tableView->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
     ui -> tableView->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);//设定主题弹性拉伸
 
-    ui -> tableView->setColumnWidth(0,50);       //设定表格的宽度
+    ui -> tableView->setColumnWidth(0,18);       //设定表格的宽度
     ui -> tableView->setColumnWidth(1,100);
 
     ui -> tableView->verticalHeader()->hide();    //隐藏默认显示的行头
@@ -74,6 +77,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui-> tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(rithtClickMenu(QPoint)));
     connect(rightClickMenu, SIGNAL(triggered(QAction*)), this, SLOT(menuChooseAction(QAction*)));
     connect(ui-> tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openDetail(QModelIndex)));
+
     /* 表格生成完成 //*/
 
 

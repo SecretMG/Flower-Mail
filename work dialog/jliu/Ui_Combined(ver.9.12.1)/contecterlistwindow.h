@@ -3,6 +3,8 @@
 
 #include <addcontact.h>
 #include <QDialog>
+#include <QStandardItemModel>
+#include <QTableView>
 
 namespace Ui {
 class ContecterListwindow;
@@ -19,6 +21,7 @@ public:
 private:
     Ui::ContecterListwindow *ui;
     AddContact *addContact;
+    QStandardItemModel *standItemModel;
 
 private slots:
     void openAddContact();
