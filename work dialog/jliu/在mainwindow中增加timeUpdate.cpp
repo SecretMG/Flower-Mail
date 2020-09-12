@@ -24,3 +24,4 @@ void Widget::timerUpdate()
 }
 
 //在mainwindow的ui中添加一个label，改名为：timeUpdate
+//之后全部完成
