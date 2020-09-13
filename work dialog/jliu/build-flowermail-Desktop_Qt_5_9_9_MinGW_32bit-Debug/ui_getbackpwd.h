@@ -35,7 +35,10 @@ public:
     QLabel *empty_btn_lb;
     QPushButton *yes_btn;
     QPushButton *cancel_btn;
-    QLabel *tips_lb;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QLineEdit *lineEdit;
 
     void setupUi(QWidget *Getbackpwd)
     {
@@ -44,7 +47,7 @@ public:
         Getbackpwd->resize(979, 615);
         horizontalLayoutWidget = new QWidget(Getbackpwd);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(240, 262, 476, 31));
+        horizontalLayoutWidget->setGeometry(QRect(240, 250, 476, 31));
         mail_layout = new QHBoxLayout(horizontalLayoutWidget);
         mail_layout->setObjectName(QStringLiteral("mail_layout"));
         mail_layout->setContentsMargins(0, 0, 0, 0);
@@ -62,7 +65,7 @@ public:
         mail_layout->setStretch(1, 7);
         horizontalLayoutWidget_5 = new QWidget(Getbackpwd);
         horizontalLayoutWidget_5->setObjectName(QStringLiteral("horizontalLayoutWidget_5"));
-        horizontalLayoutWidget_5->setGeometry(QRect(240, 330, 476, 32));
+        horizontalLayoutWidget_5->setGeometry(QRect(240, 300, 476, 32));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget_5);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -87,9 +90,24 @@ public:
         horizontalLayout->addLayout(buttons_layout);
 
         horizontalLayout->setStretch(0, 7);
-        tips_lb = new QLabel(Getbackpwd);
-        tips_lb->setObjectName(QStringLiteral("tips_lb"));
-        tips_lb->setGeometry(QRect(390, 300, 321, 29));
+        horizontalLayoutWidget_2 = new QWidget(Getbackpwd);
+        horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(240, 210, 471, 41));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(horizontalLayoutWidget_2);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        lineEdit = new QLineEdit(horizontalLayoutWidget_2);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        horizontalLayout_2->addWidget(lineEdit);
+
+        horizontalLayout_2->setStretch(0, 3);
+        horizontalLayout_2->setStretch(1, 7);
 
         retranslateUi(Getbackpwd);
         QObject::connect(cancel_btn, SIGNAL(clicked()), Getbackpwd, SLOT(close()));
@@ -100,11 +118,11 @@ public:
     void retranslateUi(QWidget *Getbackpwd)
     {
         Getbackpwd->setWindowTitle(QApplication::translate("Getbackpwd", "Form", Q_NULLPTR));
-        mail_lb->setText(QApplication::translate("Getbackpwd", "\351\202\256\344\273\266\345\234\260\345\235\200", Q_NULLPTR));
+        mail_lb->setText(QApplication::translate("Getbackpwd", "\345\257\206\344\277\235\351\227\256\351\242\230", Q_NULLPTR));
         empty_btn_lb->setText(QString());
         yes_btn->setText(QApplication::translate("Getbackpwd", "\344\270\213\344\270\200\346\255\245", Q_NULLPTR));
         cancel_btn->setText(QApplication::translate("Getbackpwd", "\345\217\226\346\266\210", Q_NULLPTR));
-        tips_lb->setText(QApplication::translate("Getbackpwd", "\350\277\231\351\207\214\346\230\257\346\223\215\344\275\234\346\217\220\347\244\272\357\274\214\351\200\232\350\277\207\345\217\257\344\273\245\351\207\215\347\275\256\345\257\206\347\240\201", Q_NULLPTR));
+        label->setText(QApplication::translate("Getbackpwd", "\345\257\206\344\277\235\347\255\224\346\241\210", Q_NULLPTR));
     } // retranslateUi
 
 };

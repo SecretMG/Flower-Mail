@@ -19,10 +19,8 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -33,8 +31,6 @@ class Ui_LogInWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *total_layout;
     QHBoxLayout *user;
     QVBoxLayout *verticalLayout_2;
@@ -60,14 +56,14 @@ public:
     QLabel *empty_right_lb;
     QSpacerItem *horizontalSpacer;
     QSpacerItem *verticalSpacer_2;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer_2;
 
     void setupUi(QWidget *LogInWindow)
     {
         if (LogInWindow->objectName().isEmpty())
             LogInWindow->setObjectName(QStringLiteral("LogInWindow"));
-        LogInWindow->resize(1149, 600);
+        LogInWindow->resize(1000, 661);
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -75,20 +71,13 @@ public:
         LogInWindow->setSizePolicy(sizePolicy);
         centralwidget = new QWidget(LogInWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        centralwidget->setGeometry(QRect(0, 0, 1151, 601));
+        centralwidget->setGeometry(QRect(-10, 0, 1011, 661));
         sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
         centralwidget->setSizePolicy(sizePolicy);
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 0, 1, 1, 1);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_2, 1, 2, 1, 1);
-
         total_layout = new QVBoxLayout();
         total_layout->setSpacing(4);
         total_layout->setObjectName(QStringLiteral("total_layout"));
@@ -125,8 +114,10 @@ public:
 
         verticalLayout_2->addWidget(label_2);
 
+        verticalLayout_2->setStretch(0, 3);
         verticalLayout_2->setStretch(1, 4);
         verticalLayout_2->setStretch(2, 7);
+        verticalLayout_2->setStretch(3, 1);
 
         user->addLayout(verticalLayout_2);
 
@@ -143,8 +134,6 @@ public:
 
         verticalLayout->addWidget(pwd_le);
 
-        verticalLayout->setStretch(0, 4);
-        verticalLayout->setStretch(1, 3);
 
         user->addLayout(verticalLayout);
 
@@ -243,18 +232,20 @@ public:
 
         gridLayout->addItem(verticalSpacer_2, 2, 1, 1, 1);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 0, 1, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 1, 2, 1, 1);
+
         gridLayout->setRowStretch(0, 2);
         gridLayout->setRowStretch(1, 3);
         gridLayout->setRowStretch(2, 2);
         gridLayout->setColumnStretch(0, 2);
-        gridLayout->setColumnStretch(1, 3);
+        gridLayout->setColumnStretch(1, 4);
         gridLayout->setColumnStretch(2, 2);
-        menubar = new QMenuBar(LogInWindow);
-        menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1149, 26));
-        statusbar = new QStatusBar(LogInWindow);
-        statusbar->setObjectName(QStringLiteral("statusbar"));
-        statusbar->setGeometry(QRect(0, 0, 3, 20));
 
         retranslateUi(LogInWindow);
         QObject::connect(cancel_btn, SIGNAL(clicked()), LogInWindow, SLOT(close()));

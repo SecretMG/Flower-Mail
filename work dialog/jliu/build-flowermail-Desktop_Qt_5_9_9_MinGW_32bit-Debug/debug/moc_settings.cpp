@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../jliu/settings.h"
+#include "../../Flower-Mail9.13Combined/settings.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Settings_t {
-    QByteArrayData data[9];
-    char stringdata0[98];
+    QByteArrayData data[8];
+    char stringdata0[103];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,17 +34,16 @@ static const qt_meta_stringdata_Settings_t qt_meta_stringdata_Settings = {
 QT_MOC_LITERAL(0, 0, 8), // "Settings"
 QT_MOC_LITERAL(1, 9, 11), // "chooseTheme"
 QT_MOC_LITERAL(2, 21, 0), // ""
-QT_MOC_LITERAL(3, 22, 13), // "Ui::Settings*"
-QT_MOC_LITERAL(4, 36, 2), // "ui"
-QT_MOC_LITERAL(5, 39, 15), // "chooseFontColor"
-QT_MOC_LITERAL(6, 55, 14), // "chooseFontType"
-QT_MOC_LITERAL(7, 70, 14), // "chooseFontSize"
-QT_MOC_LITERAL(8, 85, 12) // "toPersonInfo"
+QT_MOC_LITERAL(3, 22, 15), // "chooseFontColor"
+QT_MOC_LITERAL(4, 38, 14), // "chooseFontType"
+QT_MOC_LITERAL(5, 53, 12), // "toMainWindow"
+QT_MOC_LITERAL(6, 66, 18), // "cancelToMainWindow"
+QT_MOC_LITERAL(7, 85, 17) // "chooseButtonColor"
 
     },
-    "Settings\0chooseTheme\0\0Ui::Settings*\0"
-    "ui\0chooseFontColor\0chooseFontType\0"
-    "chooseFontSize\0toPersonInfo"
+    "Settings\0chooseTheme\0\0chooseFontColor\0"
+    "chooseFontType\0toMainWindow\0"
+    "cancelToMainWindow\0chooseButtonColor"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,7 +53,7 @@ static const uint qt_meta_data_Settings[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,17 +61,19 @@ static const uint qt_meta_data_Settings[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x08 /* Private */,
-       5,    1,   42,    2, 0x08 /* Private */,
-       6,    1,   45,    2, 0x08 /* Private */,
-       7,    1,   48,    2, 0x08 /* Private */,
-       8,    0,   51,    2, 0x08 /* Private */,
+       1,    0,   44,    2, 0x08 /* Private */,
+       3,    0,   45,    2, 0x08 /* Private */,
+       4,    0,   46,    2, 0x08 /* Private */,
+       5,    0,   47,    2, 0x08 /* Private */,
+       6,    0,   48,    2, 0x08 /* Private */,
+       7,    0,   49,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -84,14 +85,16 @@ void Settings::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         Settings *_t = static_cast<Settings *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->chooseTheme((*reinterpret_cast< Ui::Settings*(*)>(_a[1]))); break;
-        case 1: _t->chooseFontColor((*reinterpret_cast< Ui::Settings*(*)>(_a[1]))); break;
-        case 2: _t->chooseFontType((*reinterpret_cast< Ui::Settings*(*)>(_a[1]))); break;
-        case 3: _t->chooseFontSize((*reinterpret_cast< Ui::Settings*(*)>(_a[1]))); break;
-        case 4: _t->toPersonInfo(); break;
+        case 0: _t->chooseTheme(); break;
+        case 1: _t->chooseFontColor(); break;
+        case 2: _t->chooseFontType(); break;
+        case 3: _t->toMainWindow(); break;
+        case 4: _t->cancelToMainWindow(); break;
+        case 5: _t->chooseButtonColor(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject Settings::staticMetaObject = {
@@ -119,13 +122,13 @@ int Settings::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
