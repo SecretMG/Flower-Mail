@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../../../Users/Datrice/Desktop/Ui_Combined/loginwindow.h"
+#include "../../Flower-Mail9.13Combined/loginwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_LogInWindow_t {
     QByteArrayData data[12];
-    char stringdata0[111];
+    char stringdata0[131];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,23 +32,23 @@ struct qt_meta_stringdata_LogInWindow_t {
 static const qt_meta_stringdata_LogInWindow_t qt_meta_stringdata_LogInWindow = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "LogInWindow"
-QT_MOC_LITERAL(1, 12, 10), // "connectSig"
+QT_MOC_LITERAL(1, 12, 10), // "toRegister"
 QT_MOC_LITERAL(2, 23, 0), // ""
-QT_MOC_LITERAL(3, 24, 10), // "toRegister"
-QT_MOC_LITERAL(4, 35, 10), // "toRemempwd"
-QT_MOC_LITERAL(5, 46, 10), // "submitInfo"
-QT_MOC_LITERAL(6, 57, 10), // "toMainPage"
-QT_MOC_LITERAL(7, 68, 7), // "isEmpty"
-QT_MOC_LITERAL(8, 76, 7), // "isRemem"
-QT_MOC_LITERAL(9, 84, 16), // "Ui::LogInWindow*"
-QT_MOC_LITERAL(10, 101, 2), // "ui"
-QT_MOC_LITERAL(11, 104, 6) // "isAuto"
+QT_MOC_LITERAL(3, 24, 10), // "toRemempwd"
+QT_MOC_LITERAL(4, 35, 10), // "submitInfo"
+QT_MOC_LITERAL(5, 46, 10), // "toMainPage"
+QT_MOC_LITERAL(6, 57, 13), // "textChangeTip"
+QT_MOC_LITERAL(7, 71, 7), // "textGet"
+QT_MOC_LITERAL(8, 79, 13), // "keyPressEvent"
+QT_MOC_LITERAL(9, 93, 10), // "QKeyEvent*"
+QT_MOC_LITERAL(10, 104, 5), // "event"
+QT_MOC_LITERAL(11, 110, 20) // "on_login_btn_clicked"
 
     },
-    "LogInWindow\0connectSig\0\0toRegister\0"
-    "toRemempwd\0submitInfo\0toMainPage\0"
-    "isEmpty\0isRemem\0Ui::LogInWindow*\0ui\0"
-    "isAuto"
+    "LogInWindow\0toRegister\0\0toRemempwd\0"
+    "submitInfo\0toMainPage\0textChangeTip\0"
+    "textGet\0keyPressEvent\0QKeyEvent*\0event\0"
+    "on_login_btn_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,7 +58,7 @@ static const uint qt_meta_data_LogInWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -66,24 +66,22 @@ static const uint qt_meta_data_LogInWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x08 /* Private */,
-       3,    0,   55,    2, 0x08 /* Private */,
-       4,    0,   56,    2, 0x08 /* Private */,
-       5,    0,   57,    2, 0x08 /* Private */,
-       6,    0,   58,    2, 0x08 /* Private */,
-       7,    0,   59,    2, 0x08 /* Private */,
-       8,    1,   60,    2, 0x08 /* Private */,
-      11,    1,   63,    2, 0x08 /* Private */,
+       1,    0,   49,    2, 0x08 /* Private */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    0,   51,    2, 0x08 /* Private */,
+       5,    0,   52,    2, 0x08 /* Private */,
+       6,    1,   53,    2, 0x08 /* Private */,
+       8,    1,   56,    2, 0x08 /* Private */,
+      11,    0,   59,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    7,
+    QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void,
-    QMetaType::Bool,
-    QMetaType::Void, 0x80000000 | 9,   10,
-    QMetaType::Void, 0x80000000 | 9,   10,
 
        0        // eod
 };
@@ -94,15 +92,13 @@ void LogInWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         LogInWindow *_t = static_cast<LogInWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->connectSig(); break;
-        case 1: _t->toRegister(); break;
-        case 2: _t->toRemempwd(); break;
-        case 3: _t->submitInfo(); break;
-        case 4: _t->toMainPage(); break;
-        case 5: { bool _r = _t->isEmpty();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 6: _t->isRemem((*reinterpret_cast< Ui::LogInWindow*(*)>(_a[1]))); break;
-        case 7: _t->isAuto((*reinterpret_cast< Ui::LogInWindow*(*)>(_a[1]))); break;
+        case 0: _t->toRegister(); break;
+        case 1: _t->toRemempwd(); break;
+        case 2: _t->submitInfo(); break;
+        case 3: _t->toMainPage(); break;
+        case 4: _t->textChangeTip((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 5: _t->keyPressEvent((*reinterpret_cast< QKeyEvent*(*)>(_a[1]))); break;
+        case 6: _t->on_login_btn_clicked(); break;
         default: ;
         }
     }
@@ -133,13 +129,13 @@ int LogInWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }

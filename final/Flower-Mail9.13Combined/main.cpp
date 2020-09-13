@@ -11,6 +11,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
     LogInWindow logInWindow;
     logInWindow.show();
     /*Settings set;

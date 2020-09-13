@@ -25,6 +25,14 @@ MainWindow::MainWindow(QWidget *parent)
     tableBuild();
     setConnect();
 
+    QPalette palette = this -> palette();
+    palette.setColor(QPalette::Background,QColor(250,250,200));//背景颜色
+    palette.setColor(QPalette::WindowText,QColor(20,100,100));//window内的非功能键文字颜色
+    palette.setColor(QPalette::Button,QColor(250,250,200));
+    palette.setColor(QPalette::Base,QColor(250,250,210));
+    this -> setPalette(palette);
+
+
 }
 
 MainWindow::~MainWindow()

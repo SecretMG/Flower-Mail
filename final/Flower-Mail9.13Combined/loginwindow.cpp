@@ -9,6 +9,7 @@
 #include <QRegExpValidator>
 #include <QToolTip>
 #include <QKeyEvent>
+#include <QPalette>
 
 //需要记录用户and密码，自动登录and记住密码
 
@@ -20,6 +21,15 @@ LogInWindow::LogInWindow(QWidget *parent)
 
     init();//一切界面初始化都在这里
     connectSig();
+    setAutoFillBackground(true);//必须有这条语句
+    QPalette palette = this -> palette();
+    palette.setColor(QPalette::Window,QColor(250,250,200));
+    palette.setColor(QPalette::WindowText,QColor(100,100,100));
+    palette.setBrush(QPalette::Button,QColor(250,250,200));
+    palette.setColor(QPalette::Disabled, QPalette::Base,QColor(250,250,210));
+
+    this -> setPalette(palette);
+     //setPalette (QPalette::Button, QColor(240,250,200));
 }
 
 

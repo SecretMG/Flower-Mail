@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/QSS">
+        <file>black</file>
+    </qresource>
+</RCC>
