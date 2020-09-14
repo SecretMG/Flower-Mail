@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.0, 2020-09-13T23:04:58. -->
+<!-- Written by QtCreator 4.13.0, 2020-09-14T10:25:34. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -320,8 +320,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Datrice/Desktop/Flower-Mail-master9.13.6/final/Flower-Mail9.13Combined/FlowerMail.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Datrice/Desktop/Flower-Mail-master9.13.6/final/Flower-Mail9.13Combined/FlowerMail.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">FlowerMail2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Synchronized Folder/Github/Flower-Mail/final/Flower-Mail9.13Combinedver0.7/FlowerMail.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Synchronized Folder/Github/Flower-Mail/final/Flower-Mail9.13Combinedver0.7/FlowerMail.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

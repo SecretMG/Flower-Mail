@@ -47,6 +47,10 @@ private slots:
     void openFontSet();
     void openFontColor();
     void judgeRight();
+    void receiveSenderData(QString data);
+    void receiveThemeData(QString data);
+    void receiveContextData(QString data);
+
 
 private:
     void setConnect();

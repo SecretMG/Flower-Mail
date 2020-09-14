@@ -45,6 +45,12 @@ private slots:
 private:
     void setConnect();
     void initSet();
+
+
+signals:
+    void sendSenderData(QString);   //用来传递数据的信号
+    void sendThemeData(QString);   //用来传递数据的信号
+    void sendContextData(QString);   //用来传递数据的信号
 };
 
 #endif // LETTERDETAILWINDOWS_H
