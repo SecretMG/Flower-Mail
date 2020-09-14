@@ -70,7 +70,7 @@
       <x>200</x>
       <y>20</y>
       <width>711</width>
-      <height>171</height>
+      <height>412</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0">
@@ -105,10 +105,10 @@
       <widget class="QTextEdit" name="LreceivOther"/>
      </item>
      <item>
-      <widget class="QTextEdit" name="LthemInput"/>
+      <widget class="QTextEdit" name="LreceiverSecert"/>
      </item>
      <item>
-      <widget class="QTextEdit" name="LreceiverSecert"/>
+      <widget class="QTextEdit" name="LthemInput"/>
      </item>
     </layout>
    </widget>

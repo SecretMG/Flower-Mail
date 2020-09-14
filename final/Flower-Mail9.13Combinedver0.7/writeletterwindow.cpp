@@ -9,6 +9,7 @@
 #include <QColorDialog>
 #include <QLineEdit>
 #include <QKeyEvent>
+#include <dialog.h>
 
 extern QPalette userColor;
 extern QFont fontType;
@@ -51,6 +52,10 @@ void WriteLetterWindow::setConnect(){
     connect (ui -> LchooseFont, SIGNAL(clicked()), this, SLOT( openFontSet()) );
     connect (ui -> LchooseFontColor, SIGNAL(clicked()), this, SLOT( openFontColor()) );
     connect (ui -> Lsend, SIGNAL(clicked()), this, SLOT( judgeRight()) );
+
+    connect(ui -> Lreceiver, SIGNAL(sendSenderData(QString)), this, SLOT(receiveSenderData(QString)));
+    connect(ui -> LthemInput, SIGNAL(sendThemeData(QString)), this, SLOT(receiveThemeData(QString)));
+    connect(ui -> Lcontext, SIGNAL(sendContextData(QString)), this, SLOT(receiveContextData(QString)));
 
 }
 
@@ -115,6 +120,18 @@ void WriteLetterWindow::judgeRight(){
     else{
         QMessageBox::warning(this, tr("警告"),tr("输入包括中文字符！"),tr("关闭"));
     }
+}
+
+void WriteLetterWindow::receiveSenderData(QString data){
+    ui -> Lreceiver ->setText(data);     //获取传递过来的数据
+}
+
+void WriteLetterWindow::receiveThemeData(QString data){
+    ui -> LthemInput ->setText(data);     //获取传递过来的数据
+}
+
+void WriteLetterWindow::receiveContextData(QString data){
+    ui-> Lcontext ->setText(data);     //获取传递过来的数据
 }
 
 

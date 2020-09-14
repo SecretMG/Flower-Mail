@@ -26,16 +26,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextBrowser" name="LetterDetailsContext">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>290</y>
-      <width>761</width>
-      <height>341</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -204,6 +194,16 @@
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QLineEdit" name="LetterDetailsContext">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>330</y>
+      <width>811</width>
+      <height>341</height>
+     </rect>
+    </property>
    </widget>
   </widget>
  </widget>

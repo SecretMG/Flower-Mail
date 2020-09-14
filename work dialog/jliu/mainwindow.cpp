@@ -107,7 +107,6 @@ void MainWindow::timerUpdate(){
 void MainWindow::tableBuild(){
     int boxState = 1 ; //设定信箱分类；默认收件箱=1，已发送=2，草稿=3，垃圾=4，未读=5,此处需要与后端链接，也需要一个信箱点击为1-5的输入确定收取内容和表格
     standItemModel = new QStandardItemModel();//添加QTableView代码
-    QTableView
     //添加表头
     standItemModel->setColumnCount(4);
     standItemModel->setHeaderData(0,Qt::Horizontal,QStringLiteral(" "));   //设置表头内容
@@ -179,10 +178,10 @@ void MainWindow::menuChooseAction(QAction *act){  //弹出提示框，看是否�
                 QString::fromLocal8Bit("This Mail will be moved"),
                 QMessageBox::Yes | QMessageBox::No, NULL);
 
-    if(message.exec() == QMessageBox::Yes){
+    /*if(message.exec() == QMessageBox::Yes){
         if(act->text() == QString::fromLocal8Bit("delete/retrive"))   //看选中了删除这个菜单
-           ; /*model_measure -> removeRow(selected_Current_Row);  //删除掉了表格信息*/
-        }
+           ; //model_measure -> removeRow(selected_Current_Row);  //删除掉了表格信息*/
+        //}
 }
 
 void MainWindow::openDetail(QModelIndex index2){
