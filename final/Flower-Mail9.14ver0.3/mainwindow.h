@@ -4,6 +4,10 @@
 #include "writeletterwindow.h"
 #include "searchresultwindow.h"
 #include "letterdetailwindows.h"
+#include "letterreceivebox.h"
+#include "lettersentbox.h"
+#include "letterscriptbox.h"
+#include "letterdeletedbox.h"
 
 #include <QMainWindow>
 #include <QLabel>
@@ -53,6 +57,11 @@ private:
 
     bool isTheme = false;
 
+    LetterReceiveBox *letterReceiveBox;
+    LetterSentBox *letterSentBox;
+    LetterScriptBox *letterScriptBox;
+    LetterDeletedBox *letterDeletedBox;
+
 private slots:
     void openWriteLetter();
     void openSearchResult();
@@ -66,11 +75,20 @@ private slots:
     void toHelp();
     void logOut();
 
+    void toReceive();
+    void toSent();
+    void toScript();
+    void toDelete();
+
+
+
 
 private:
     void setConnect();
     void setTheme();
     void closeEvent(QCloseEvent *event);
+    void initNewWin();
+
 
 };
 #endif // MAINWINDOW_H
