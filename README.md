@@ -1,5 +1,4 @@
 # Flower-Mail
-<<<<<<< HEAD
 
 BIT 2020Fall Short-Semester
 
@@ -22,6 +21,3 @@ socket、MySQL、Json等均使用QT封装库。
 
 
 
-=======
-BIT 2020Fall Short-Semester
->>>>>>> 0ceccff7897268a527cc84484971686c4af834ae
