@@ -17,6 +17,7 @@ public:
     QString userQuesRight;
     QString userAnsRight;
     QString userPasswordRight;
+    int boxState ;
 
     bool loginState; 
 
@@ -32,6 +33,7 @@ private:
         buttonBackCol = "background-color:rgba(100,225,100,30);";
         backGroundColor ="(255,100,100,100)";
         fontColorArgb ="(255, 0, 0, 0)";
+        boxState = 1;
 
         userNameRight = "默认名称";
         loginState = false;

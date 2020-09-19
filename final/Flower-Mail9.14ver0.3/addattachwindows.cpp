@@ -3,6 +3,11 @@
 
 #include <QPalette>
 #include <QPushButton>
+#include <QString>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QFile>
+#include <QDebug>
 
 extern QPalette userColor;
 extern QFont fontType;
@@ -44,3 +49,51 @@ void AddAttachWindows::initSet(){
          allText_te[i] -> setFont( fontType );
     }
 }
+
+
+void AddAttachWindows::on_pushButton_clicked()
+{
+    QString fileFull, fileName, filePath,fileSuffix;
+    QFileInfo fileinfo;
+    fileFull = QFileDialog::getOpenFileName(this,tr("file"),"/");  //获取整个文件名
+    //fileFull = E:\QtCode\newExample\myTry\新建文本文档.txt
+
+    //获取文件信息
+    fileinfo = QFileInfo(fileFull);
+    //fileinfo = E:\QtCode\newExample\myTry\新建文本文档.txt
+
+    //获取文件名字
+    fileName = fileinfo.fileName();
+    //fileName = 新建文本文档.txt
+
+    //获取文件后缀
+    fileSuffix = fileinfo.suffix();
+    //fileSuffix = txt
+
+    //获取文件绝对路径
+    filePath = fileinfo.absolutePath();
+    if(!fileFull.isNull())
+    {
+       QFile file(fileFull);
+       if(!file.open(QFile::ReadOnly | QFile::Text))
+        {
+            QMessageBox::warning(this,tr("Error"),tr("read file error:&1").arg(file.errorString()));
+            return;
+        }
+            QTextStream in(&file);
+            QApplication::setOverrideCursor(Qt::WaitCursor);
+
+
+            ui -> lineEdit->setText(fileFull);
+            ui -> FileName ->setText(fileName);
+            ui -> FileContext ->setPlainText(in.readAll());
+
+            QApplication::restoreOverrideCursor();
+
+    }
+    else
+    {
+       qDebug()<<"cancel";
+    }
+}
+

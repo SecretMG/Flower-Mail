@@ -8,11 +8,13 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QKeyEvent>
+#include <QWidget>
 
 extern QFont fontType;
 extern QString fontColorArgb;
 extern QString buttonBackCol;
 extern QString userNameRight;
+extern int boxState;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -59,6 +61,11 @@ void MainWindow::setConnect(){
     connect( ui -> safe_btn, SIGNAL( clicked() ), this, SLOT( toSafe() ));
     connect( ui -> help_btn, SIGNAL( clicked() ), this, SLOT( toHelp() ));
     connect( ui ->Logout, SIGNAL( clicked() ), this, SLOT( logOut() ));
+
+    connect( ui -> ReceiveBox, SIGNAL(clicked()), this, SLOT( toReceive()) );
+    connect( ui -> SentBox, SIGNAL(clicked()), this, SLOT( toSent()) );
+    connect( ui -> ScriptBox, SIGNAL(clicked()), this, SLOT( toScript()) );
+    connect( ui -> SentBox, SIGNAL(clicked()), this, SLOT( toSent()) );
 }
 
 void MainWindow::setTheme(){
@@ -97,7 +104,7 @@ void MainWindow::timerUpdate(){
 }
 /*以下内容为表格生成*/
 void MainWindow::tableBuild(){
-    int boxState = 1 ; //设定信箱分类；默认收件箱=1，已发送=2，草稿=3，垃圾=4，未读=5,此处需要与后端链接，也需要一个信箱点击为1-5的输入确定收取内容和表格
+     //设定信箱分类；默认收件箱=1，已发送=2，草稿=3，垃圾=4，未读=5,此处需要与后端链接，也需要一个信箱点击为1-5的输入确定收取内容和表格
     standItemModel = new QStandardItemModel();//添加QTableView代码
     //添加表头
     standItemModel->setColumnCount(4);
@@ -127,33 +134,36 @@ void MainWindow::tableBuild(){
     }//*/此处可以视作留给数据的输入口
 
 
-    ui -> tableView->setModel(standItemModel);    //挂载表格模型
+    ui -> letterBox ->setModel(standItemModel);    //挂载表格模型
     //以下内容为表格格式
-    ui -> tableView->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);  //设定序号和收发栏列宽不可变
-    ui -> tableView->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
-    ui -> tableView->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);//设定主题弹性拉伸
+    ui -> letterBox ->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);  //设定序号和收发栏列宽不可变
+    ui -> letterBox ->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
+    ui -> letterBox ->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Stretch);//设定主题弹性拉伸
 
-    ui -> tableView->setColumnWidth(0,18);       //设定表格的宽度
-    ui -> tableView->setColumnWidth(1,100);
+    standItemModel->setColumnWidth(0,18);       //设定表格的宽度
+    standItemModel->setColumnWidth(1,100);
 
-    ui -> tableView->verticalHeader()->hide();    //隐藏默认显示的行头
-    ui -> tableView->hideColumn(3);  //隐藏时间戳列表
+    standItemModel->verticalHeader()->hide();    //隐藏默认显示的行头
+    standItemModel->hideColumn(3);  //隐藏时间戳列表
 
-    ui -> tableView->setSelectionBehavior(QAbstractItemView::SelectRows); //设置选中时整行选中
-    ui -> tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);  //设置表格属性只读，不能编辑
-    ui -> tableView->setAlternatingRowColors(true);  // alternative colors
-    ui -> tableView->sortByColumn(3,Qt::AscendingOrder);                 //按照时间戳降序排列，也就是最后收到的排在最开头
+    standItemModel->setSelectionBehavior(QAbstractItemView::SelectRows); //设置选中时整行选中
+    standItemModel->setEditTriggers(QAbstractItemView::NoEditTriggers);  //设置表格属性只读，不能编辑
+    standItemModel->setAlternatingRowColors(true);  // alternative colors
+    standItemModel->sortByColumn(3,Qt::AscendingOrder);                 //按照时间戳降序排列，也就是最后收到的排在最开头
 
-    ui -> tableView->setContextMenuPolicy(Qt::CustomContextMenu);         //右键弹出菜单功能
+    standItemModel->setContextMenuPolicy(Qt::CustomContextMenu);         //右键弹出菜单功能
     //以下为右键弹出菜单功能
-    rightClickMenu = new QMenu();               //右键点击菜单
-    deleteAction = new QAction(QString::fromLocal8Bit("delete/retrive"),this);               //删除or移动事件
+    rightClickMenu = new QMenu();  //右键点击菜单
+    if(boxState==4)    {
+        deleteAction = new QAction(QString::fromLocal8Bit("retrive"),this);
+    }
+    else    {
+        deleteAction = new QAction(QString::fromLocal8Bit("delete"),this);
+    }               //删除or移动事件
     rightClickMenu->addAction(deleteAction);    //将action添加到菜单内
-    connect(ui-> tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(rithtClickMenu(QPoint)));
+    connect(standItemModel, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(rithtClickMenu(QPoint)));
     connect(rightClickMenu, SIGNAL(triggered(QAction*)), this, SLOT(menuChooseAction(QAction*)));
-    connect(ui-> tableView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openDetail(QModelIndex)));
-
-
+    connect(standItemModel, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(openDetail(QModelIndex)));
 }
 
 void MainWindow::rithtClickMenu(QPoint pos){
@@ -220,4 +230,25 @@ void MainWindow::closeEvent(QCloseEvent *event){
 
 void MainWindow::logOut(){
     closeEvent( event );
+}
+
+void Help::initNewWin(){
+    letterReceiveBox = new LetterReceiveBox(this);
+    letterSentBox = new LetterSentBox(this);
+    letterScriptBox = new LetterScriptBox(this);
+    letterDeletedBox = new LetterDeletedBox(this);
+
+    ui -> stackedWidget ->addWidget(letterReceiveBox);
+    ui -> stackedWidget ->addWidget(letterSentBox);
+    ui -> stackedWidget ->addWidget(letterScriptBox);
+    ui -> stackedWidget ->addWidget(letterDeletedBox);
+
+    ui -> stackedWidget->setCurrentWidget(letterBox);
+
+    allText_btn = this->findChildren<QPushButton*>();
+    for(int i = 0;i < buttonNum;i++){
+        allText_btn[i]->setStyleSheet( fontColorArgb+buttonBackCol );
+        allText_btn[i]->setFont(fontType);
+    }//批量操作成功！！
+
 }

@@ -20,6 +20,7 @@ QString userQuesRight;
 QString userAnsRight;
 QString userPasswordRight;//在登录比对用户名正确后拿出来的内容
 bool loginState;
+int boxState ;
 
 //以下是预设主题内容，因为实在是解决不了全局变量结构体的问题
 

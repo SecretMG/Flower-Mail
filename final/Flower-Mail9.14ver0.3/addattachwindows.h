@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QLabel>
 #include <QTextEdit>
+#include <qdialog.h>
+
 
 namespace Ui {
 class AddAttachWindows;
@@ -25,11 +27,14 @@ private:
     QList<QTextEdit*> allText_te;
 
     const int labelNum = 2;
-    const int buttonNum = 2;
+    const int buttonNum = 3;
     const int textEditNum = 1;
 
 private:
     void initSet();
+
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // ADDATTACHWINDOWS_H
